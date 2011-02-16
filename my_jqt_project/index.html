@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>WebRulzz!!</title>
+
+	    <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+	    <style type="text/css" media="screen">@import "jqtouch/iphone.css/apple/theme.css";</style>
+	    <style type="text/css" media="screen">@import "themes/apple/theme.css";</style>	
+
+        <script type="text/javascript" src="jqtouch/iphone.js"></script>	
+	    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	    <script type="text/javascript"> google.load("jquery", "1.3.2"); </script>
+        <script type="text/javascript" src="jqtouch/jqtouch.js"></script>
+
+
+
+<!-->		<style type= "text/css">@import "themes/apple/theme.css";</style>
+        <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>  
+
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>		
+        <script type="text/javascript" src="jqtouch/jquery.js"></script>	
+        <script type="text/javascript" src="jqtouch/jqtouch.js"></script></!-->
+
+        <script type="text/javascript">
+            var jQT = $.jQTouch({
+            statusBar: 'black-translucent',
+				preloadImages: 
+				[
+					'themes/apple/img/backButton.png',				
+					'themes/apple/img/toolbar.png',					
+					'themes/apple/img/blueButton.png',
+					'themes/apple/img/cancel.png',
+					'themes/apple/img/chevron.png',
+					'themes/apple/img/grayButton.png',
+					'themes/apple/img/listArrowSel.png',
+					'themes/apple/img/listGroup.png',
+					'themes/apple/img/loading.gif',
+					'themes/apple/img/on_off.png',
+					'themes/apple/img/pinstripes.png',
+					'themes/apple/img/selection.png',
+					'themes/apple/img/thumb.png',
+					'themes/apple/img/toggle.png',
+					'themes/apple/img/toolButton.png',
+					'themes/apple/img/whiteButton.png'		
+				]
+				
+            });
+
+			function saveSettings() 
+			{
+				localStorage.age = $('#age').val();
+				localStorage.weight = $('#weight').val();
+				alert('Settings saved!');
+				jqt.goBack();
+			}
+			
+			window.onload = function() 
+			{
+			$('#settings').bind('pageAnimationStart', function(e, info)
+				{
+					if (info.direction === 'in') 
+					{
+						$('#age').val(localStorage.age);
+						$('#weight').val(localStorage.weight);
+					}	
+				});
+
+			}			
+			
+        </script>
+    </head>
+	   <body>
+	            <div id="home">
+	                <div class="toolbar">
+	                    <h1>Home</h1>
+						<a class="button slideup" href="#settings">Settings</a>
+	                </div>
+	                <ul class="rounded">
+	                    <li class="arrow"><a href="#about">About</a></li>
+	                    <li class="arrow"><a href="#blog">Blog</a></li>
+	                    <li class="arrow"><a href="#contact">Contact</a></li>
+	                </ul>
+	            </div>
+
+				<div id="about">
+				    <div class="toolbar">
+				        <h1>About</h1>
+						<a class="back button" href="#">Back</a>	
+				    </div>
+				    <p class="info">Hello from the About panel!</p>
+				</div>
+
+	            <div id="blog">
+	                <div class="toolbar">
+	                    <h1>Blog</h1>
+	                    <a class="back button" href="#"> Back </a>
+	                </div>
+	                <p class="info">Hello from the Blog panel!
+	                </p>
+	            </div>
+
+	            <div id="contact">
+	                <div class="toolbar">
+	                    <h1>Contact</h1>
+	                    <a class="back button" href="#">Back</a>
+	                </div>
+	                <p class="info">Hello from the Contact panel!
+	                </p>
+	            </div>
+
+				<div id="settings">
+				    <div class="toolbar">
+				        <h1>Settings</h1>
+						<a class="cancel" href="#">Cancel</a>
+				    </div>
+				   <form action = "">
+						<ul>
+							<li><input type="text" name="age" value="" id="age" placeholder="Age" autocapitalize="off" autocorrect="off" autocomplete="off"></li>
+							<li><input type="text" name="weight" value="" id="weight" placeholder="Weight" autocapitalize="off" autocorrect="off" autocomplete="on/off"></li>
+						</ul>
+						<a href="#" onclick="saveSettings()" class="whiteButton" style="margin:10px">Save Settings</a>
+					</form>
+				</div>
+	    </body>
+	</html>
